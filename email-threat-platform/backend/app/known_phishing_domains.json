@@ -1,0 +1,22 @@
+[
+  {"domain": "update-service-alert.com", "category": "Banking Phishing", "source": "Sample Threat Feed", "severity": "High"},
+  {"domain": "attacker-drop.net", "category": "Credential Harvester", "source": "Sample Threat Feed", "severity": "Critical"},
+  {"domain": "secure-verify-banking.net", "category": "Financial Spoof", "source": "Sample Threat Feed", "severity": "High"},
+  {"domain": "evil-drop.com", "category": "Data Exfiltration", "source": "Sample Threat Feed", "severity": "Critical"},
+  {"domain": "protonmail-drop.com", "category": "BEC Drop Box", "source": "Sample Threat Feed", "severity": "High"},
+  {"domain": "fake-bank.com", "category": "Financial Phish", "source": "Sample Threat Feed", "severity": "High"},
+  {"domain": "login-apple-support-verify.com", "category": "Tech Support Phish", "source": "Sample Threat Feed", "severity": "High"},
+  {"domain": "secure-microsoft-auth365.net", "category": "M365 Credential Harvester", "source": "Sample Threat Feed", "severity": "Critical"},
+  {"domain": "paypal-account-resolution-center.org", "category": "Payment Gateway Phish", "source": "Sample Threat Feed", "severity": "Critical"},
+  {"domain": "google-drive-shared-doc-view.link", "category": "Malware Dropper", "source": "Sample Threat Feed", "severity": "Critical"},
+  {"domain": "dhl-tracking-express-package.info", "category": "Shipping Lure", "source": "Sample Threat Feed", "severity": "Medium"},
+  {"domain": "urgent-irs-tax-refund.top", "category": "Government Impersonation", "source": "Sample Threat Feed", "severity": "High"},
+  {"domain": "netflix-subscription-billing-update.cc", "category": "Subscription Scam", "source": "Sample Threat Feed", "severity": "Medium"},
+  {"domain": "secure-chase-online-banking.xyz", "category": "Banking Phish", "source": "Sample Threat Feed", "severity": "Critical"},
+  {"domain": "amazon-order-cancellation-service.site", "category": "E-Commerce Fraud", "source": "Sample Threat Feed", "severity": "High"},
+  {"domain": "urgent-zoom-meeting-invite.live", "category": "Video Conference Phish", "source": "Sample Threat Feed", "severity": "Medium"},
+  {"domain": "docu-sign-confidential-agreements.biz", "category": "DocuSign Phish", "source": "Sample Threat Feed", "severity": "High"},
+  {"domain": "crypto-binance-withdraw-confirm.me", "category": "Crypto Drainer", "source": "Sample Threat Feed", "severity": "Critical"},
+  {"domain": "ledger-hardware-wallet-sync.club", "category": "Crypto Theft", "source": "Sample Threat Feed", "severity": "Critical"},
+  {"domain": "hr-internal-salary-evaluation.cloud", "category": "Internal HR BEC", "source": "Sample Threat Feed", "severity": "High"}
+]

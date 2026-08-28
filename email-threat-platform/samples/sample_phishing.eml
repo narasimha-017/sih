@@ -1,0 +1,21 @@
+From: Account Security <security@update-service-alert.com>
+Reply-To: security-team@attacker-drop.net
+To: victim@example.com
+Subject: URGENT: Your Account Has Been Suspended - Verify Immediately
+Date: Fri, 28 Aug 2026 15:30:00 +0000
+Authentication-Results: mx.google.com; spf=fail (google.com: domain of security@update-service-alert.com does not designate permitted sender); dkim=fail; dmarc=fail
+Received: from mx.internal-boundary.lan (192.168.1.100) by mx.local with ESMTP
+Received: from mail-relay.frankfurt.de (194.25.0.68) by mx.internal-boundary.lan with ESMTPS
+Received: from vps-gateway.paris.cloud (13.38.0.1) by mail-relay.frankfurt.de with ESMTP
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Urgent Account Action Required</h2>
+  <p>Dear Customer,</p>
+  <p>We detected unauthorized login attempts on your banking account. Please act now and confirm your credentials immediately to avoid permanent account termination.</p>
+  <p><a href="http://192.168.1.100/login-fake">https://secure.yourbank.com/account/login</a></p>
+  <p>Thank you,<br>Fraud Prevention Team</p>
+</body>
+</html>

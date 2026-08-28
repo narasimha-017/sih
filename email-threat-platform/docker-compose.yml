@@ -1,0 +1,20 @@
+services:
+  api:
+    build: ./backend
+    ports: ["8000:8000"]
+    restart: unless-stopped
+  web:
+    image: nginx:alpine
+    ports: ["8080:80"]
+    volumes: ["./frontend:/usr/share/nginx/html:ro"]
+    restart: unless-stopped
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: emailforensics
+      POSTGRES_USER: forensics
+      POSTGRES_PASSWORD: change-this-in-production
+    volumes: ["pgdata:/var/lib/postgresql/data","./sql/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro"]
+    restart: unless-stopped
+volumes:
+  pgdata:

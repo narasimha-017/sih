@@ -1,0 +1,19 @@
+From: Newsletter Team <newsletter@techweekly.org>
+Reply-To: newsletter@techweekly.org
+To: subscriber@example.com
+Subject: Tech Weekly Digest: Issue #42
+Date: Fri, 28 Aug 2026 10:00:00 +0000
+Authentication-Results: mx.google.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail-dispatcher.london.uk (212.58.244.20) by mx.google.com with ESMTPS
+Received: from staging.mumbai-isp.in (182.79.0.1) by mail-dispatcher.london.uk with ESMTP
+Received: from office-lan (10.0.12.5) by staging.mumbai-isp.in
+Content-Type: text/plain; charset="UTF-8"
+
+Hi everyone,
+
+Here is your weekly technology digest covering open source updates, developer tools, and architecture tips.
+
+Read full articles on https://techweekly.org/digest-42
+
+Best regards,
+The TechWeekly Team
