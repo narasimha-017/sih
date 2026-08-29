@@ -33,6 +33,7 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Text, create_engine, desc
 from sqlalchemy.orm import Session, relationship, sessionmaker, declarative_base
+from sqlalchemy.pool import NullPool
 
 # Ensure local directory is on python path for zero-dependency execution
 sys_path_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -65,12 +66,25 @@ except ImportError:
     PYPDF_AVAILABLE = False
 
 # ---------------------------------------------------------------------------
-# Database Layer (SQLAlchemy ORM + SQLite)
+# Database Layer — PostgreSQL (production/Vercel) or SQLite (local dev only)
 # ---------------------------------------------------------------------------
-DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sentrymail_v3.db")
-DATABASE_URL = f"sqlite:///{DB_PATH}"
+# Priority: DATABASE_URL env var (Neon/Supabase PostgreSQL) > local SQLite fallback.
+# NEVER hard-code a connection string. Set DATABASE_URL in Vercel Environment Variables.
+_raw_db_url = os.environ.get("DATABASE_URL")
+if _raw_db_url:
+    # Neon / Supabase issue postgres:// but SQLAlchemy 1.4+ requires postgresql://
+    if _raw_db_url.startswith("postgres://"):
+        _raw_db_url = _raw_db_url.replace("postgres://", "postgresql://", 1)
+    _engine_kwargs = {"poolclass": NullPool, "pool_pre_ping": True}
+    engine = create_engine(_raw_db_url, **_engine_kwargs)
+else:
+    # Local dev fallback — SQLite. This path is NEVER taken on Vercel when DATABASE_URL is set.
+    _local_db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sentrymail_v3.db")
+    engine = create_engine(
+        f"sqlite:///{_local_db_path}",
+        connect_args={"check_same_thread": False},
+    )
 
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
@@ -617,7 +631,7 @@ def api_health():
     return {
         "status": "online",
         "service": "MailSentinel Cyber-Forensics Core v3",
-        "database": "SQLAlchemy ORM + SQLite (sentrymail_v3.db)",
+        "database": "PostgreSQL (Neon)" if os.environ.get("DATABASE_URL") else "SQLite (local-dev fallback)",
         "pdf_engine": "Active (pypdf)" if PYPDF_AVAILABLE else "Disabled",
         "threat_intel": "Active (Known Threat Feed + Real IP-API Geolocation)",
         "routes": {
