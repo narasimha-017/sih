@@ -54,7 +54,7 @@ except ImportError:
     try:
         from sender_intelligence.service import run_sender_intelligence, RISK_THRESHOLD
     except ImportError:
-        RISK_THRESHOLD = 70
+        RISK_THRESHOLD = 0
         def run_sender_intelligence(domain, sender_address, risk_score):
             return {"activated": False, "threshold": RISK_THRESHOLD, "error": "sender_intelligence module not found"}
 
@@ -2311,7 +2311,7 @@ function renderForensicReport(d) {
 // ---------------------------------------------------------------------------
 // Sender Intelligence Panel
 // ---------------------------------------------------------------------------
-const SI_THRESHOLD = 70; // Must match backend RISK_THRESHOLD default
+const SI_THRESHOLD = 0; // Must match backend RISK_THRESHOLD default
 
 function triggerSenderIntelligence(sender, riskScore) {
   const locked  = document.getElementById('si-locked');

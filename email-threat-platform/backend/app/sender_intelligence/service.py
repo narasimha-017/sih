@@ -17,7 +17,7 @@ if _local_dir not in sys.path:
     sys.path.insert(0, _local_dir)
 
 # Configurable risk threshold — change via environment variable
-RISK_THRESHOLD: int = int(os.environ.get("SENDER_INTEL_THRESHOLD", "70"))
+RISK_THRESHOLD: int = int(os.environ.get("SENDER_INTEL_THRESHOLD", "0"))
 
 # In-memory result cache keyed by domain (avoids re-querying same domain)
 _INTEL_CACHE: dict = {}
